@@ -1,0 +1,75 @@
+/* Header start */
+.navLogo img {
+  width: 200px !important;
+  height: 90px;
+  border-radius: 2rem;
+}
+
+.Links a {
+  margin: 0 1rem;
+  color: var(--white);
+  padding: 0.5rem;
+  border-radius: 1rem 1.5rem;
+  background-color: var(--text-color);
+}
+/* Header end */
+
+/* Hero Start */
+.hero{
+  padding: 2rem 0;
+}
+
+.heroBox h1{
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--white);
+}
+
+.hero span{
+  color: var(--text-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.hero h3{
+  font-weight: 200;
+  color: var(--white);
+}
+
+.hero img {
+  width: 100%;
+  height: 350px;
+  border-radius: 1rem;
+}
+/* Hero End */
+
+/* Services Start */
+.servicesBox{
+  padding: 2rem 0;
+}
+
+.servicesBox h2{
+  color: var(--white);
+  text-align: center;
+  text-decoration: underline;
+}
+
+.services{
+  margin: 0 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem 1.5rem;
+  background-color: var(--text-color);
+}
+
+.services img{
+  width: 100%;
+  height: 300px;
+}
+
+.services h5{
+  color: var(--white);
+  text-align: center;
+  text-decoration: underline;
+}
+/* Services End */

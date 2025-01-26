@@ -1,0 +1,84 @@
+/* Home Start */
+/* Home End */
+
+/* Image Start */
+.ImageHead h2{
+  margin: 2rem 0;
+  color: var(--white);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.encrypt-box, .decryption-section{
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: var(--text-color);
+}
+
+.encrypt-box, .decryption-section h3{
+  color: var(--white);
+  margin: 0 0 1rem 0;
+}
+
+.upload-section input{
+  color: var(--white);
+  margin: 0 0 2rem 0;
+  background-color: #202020;
+}
+
+.decryption-section input{
+  color: var(--white);
+  margin: 0 0 2rem 0;
+  background-color: #202020;
+}
+
+.image-preview{
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 120px;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--white);
+}
+
+.decrypt-preview {
+  width: max-content;
+}
+
+.key-section input, .encrypt-data textarea{
+  color: var(--white);
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  background-color: #202020;
+}
+
+.buttons button{
+  border: none;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #202020;
+  transition: all ease-in-out 0.5s;
+}
+
+.buttons button:hover{
+  box-shadow: 2px 2px 5px var(--white);
+}
+
+.encrypt-data{
+  color: var(--white);
+  width: fit-content;
+  height: 230px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: var(--text-color);
+}
+/* Image End */
