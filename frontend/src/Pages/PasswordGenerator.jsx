@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Card, CardBody, Button, InputGroup } from "react-bootstrap";
+import Header from "../Components/Header.jsx";
+import { Card, Button, Form } from "react-bootstrap";
 
 const PasswordGenerator = () => {
   const [length, setLength] = useState(12);
@@ -14,7 +15,7 @@ const PasswordGenerator = () => {
     if (includeUppercase) characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if (includeLowercase) characters += "abcdefghijklmnopqrstuvwxyz";
     if (includeNumbers) characters += "0123456789";
-    if (includeSymbols) characters += '!@#$%^&*()_+-=[]{}|;:",.<>?/';
+    if (includeSymbols) characters += "!@#$%^&*()_+-=[]{}|;:'\",.<>?/";
 
     if (characters.length === 0) {
       alert("Please select at least one option.");
@@ -29,75 +30,94 @@ const PasswordGenerator = () => {
     setGeneratedPassword(password);
   };
 
+  const copyToClipboard = () => {
+    if (generatedPassword) {
+      navigator.clipboard.writeText(generatedPassword);
+      alert("Password copied to clipboard!");
+    } else {
+      alert("No password to copy!");
+    }
+  };
+
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <Card className="p-6 max-w-md w-full">
-        <h1 className="text-2xl font-bold mb-4">Password Generator</h1>
-        <CardBody>
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Password Length</label>
-            <InputGroup.Text
-              type="number"
-              min="4"
-              max="64"
-              value={length}
-              onChange={(e) => setLength(Number(e.target.value))}
-              className="mt-1"
-            />
-          </div>
+    <>
+      <Header />
+      
+      <section className="d-flex justify-content-center align-items-center min-vh-100 bg-black">
+        <Card className="p-4 bg-body shadow-lg" style={{ width: "400px" }}>
+          <h1 className="text-center mb-4">Password Generator</h1>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Password Length</Form.Label>
+              <Form.Control
+                type="number"
+                min="4"
+                max="64"
+                value={length}
+                onChange={(e) => setLength(Number(e.target.value))}
+              />
+            </Form.Group>
 
-          <div className="mb-4">
-            <label className="flex items-center space-x-2">
-              <InputGroup.Checkbox
+            <Form.Group className="mb-3">
+              <Form.Check
+                type="checkbox"
+                label="Include Uppercase Letters"
                 checked={includeUppercase}
-                onCheckedChange={setIncludeUppercase}
+                onChange={(e) => setIncludeUppercase(e.target.checked)}
               />
-              <span>Include Uppercase Letters</span>
-            </label>
-          </div>
+            </Form.Group>
 
-          <div className="mb-4">
-            <label className="flex items-center space-x-2">
-              <InputGroup.Checkbox
+            <Form.Group className="mb-3">
+              <Form.Check
+                type="checkbox"
+                label="Include Lowercase Letters"
                 checked={includeLowercase}
-                onCheckedChange={setIncludeLowercase}
+                onChange={(e) => setIncludeLowercase(e.target.checked)}
               />
-              <span>Include Lowercase Letters</span>
-            </label>
-          </div>
+            </Form.Group>
 
-          <div className="mb-4">
-            <label className="flex items-center space-x-2">
-              <InputGroup.Checkbox
+            <Form.Group className="mb-3">
+              <Form.Check
+                type="checkbox"
+                label="Include Numbers"
                 checked={includeNumbers}
-                onCheckedChange={setIncludeNumbers}
+                onChange={(e) => setIncludeNumbers(e.target.checked)}
               />
-              <span>Include Numbers</span>
-            </label>
-          </div>
+            </Form.Group>
 
-          <div className="mb-4">
-            <label className="flex items-center space-x-2">
-              <InputGroup.Checkbox
+            <Form.Group className="mb-3">
+              <Form.Check
+                type="checkbox"
+                label="Include Symbols"
                 checked={includeSymbols}
-                onCheckedChange={setIncludeSymbols}
+                onChange={(e) => setIncludeSymbols(e.target.checked)}
               />
-              <span>Include Symbols</span>
-            </label>
-          </div>
+            </Form.Group>
 
-          <Button onClick={generatePassword} className="w-full mb-4">
-            Generate Password
-          </Button>
+            <Button
+              variant="primary"
+              className="w-100 mb-4"
+              onClick={generatePassword}
+            >
+              Generate Password
+            </Button>
+          </Form>
 
           {generatedPassword && (
-            <div className="p-3 bg-gray-200 rounded-md text-center">
-              <p className="font-mono text-lg break-all">{generatedPassword}</p>
+            <div className="mt-4 p-3 bg-secondary text-white rounded text-center">
+              <p className="m-0">{generatedPassword}</p>
+              <Button
+                variant="light"
+                className="mt-2"
+                onClick={copyToClipboard}
+              >
+                Copy
+              </Button>
             </div>
           )}
-        </CardBody>
-      </Card>
-    </div>
+        </Card>
+      </section>
+    </>
   );
 };
 
